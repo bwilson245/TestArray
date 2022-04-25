@@ -4,9 +4,9 @@ public class main {
 
 
     public static void main(String... args) {
-        TestArrayMethods();
-        TestObjectMethods();
-        TestObjectHashCode();
+          TestArrayMethods();
+//        TestObjectMethods();
+//        TestObjectHashCode();
     }
 
     public static void TestArrayMethods() {
@@ -15,16 +15,21 @@ public class main {
         // Target is the number you are looking for in an array
         int target = 31000;
         TestArray arr = new TestArray();
+
         long time = System.currentTimeMillis();
-
         arr.nonRecursiveMethod(arr.getArray(), start, arr.getArray().length - 1, target);
-
         System.out.println("nonRecursive total execution time: " + (System.currentTimeMillis() - time));
+        System.out.println();
+
         time = System.currentTimeMillis();
-
         arr.recursiveMethod(arr.getArray(), start, arr.getArray().length - 1, target);
-
         System.out.println("recursive total execution time: " + (System.currentTimeMillis() - time));
+        System.out.println();
+
+        time = System.currentTimeMillis();
+        arr.binarySearch(arr.getArray(), target);
+        System.out.println("binary search total execution time: " + (System.currentTimeMillis() - time));
+        System.out.println();
     }
 
     // Generates a list of TestObjects and sorts them by String, Int, Double.
@@ -52,7 +57,7 @@ public class main {
             i = (int) (Math.random() * 10);
 
             // Size of the double
-            d = Math.random() * 10000 / (Math.random() + 10);
+            d = Math.random() * 10000 / (Math.random() + 1);
             list.add(new TestObject(s, i, d));
         }
         System.out.println("Before Sorting:");
@@ -94,7 +99,7 @@ public class main {
             i = (int) (Math.random() * 10);
 
             // Size of the double
-            d = Math.random() * 10000 / (Math.random() + 10);
+            d = Math.random() * 10000 / (Math.random() + 1);
             list.add(new TestObject(s, i, d));
         }
 
